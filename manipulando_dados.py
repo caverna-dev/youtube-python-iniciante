@@ -88,6 +88,13 @@ print("O usuario é maior de idade?", maior_de_idade)
 print("O usuário é alto?", altura_usuario >= 1.70)
 print("O usuário é baixo?", altura_usuario < 1.70)
 
+# Lista de todos os comparadores de MAIOR e MENOR
+# Comparacao         |  Operador
+#  MAIOR QUE:        |     >
+#  MENOR QUE:        |     <
+#  MAIOR ou IGUAL A  |     >=
+#  MENOR ou IGUAL A  |     <=
+
 
 # # Operacao de IGUALDADE
 print("O nome do usuário é Sicrano de Tal:", nome_usuario == 'Sicrano de Tal')
