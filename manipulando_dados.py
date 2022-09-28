@@ -153,7 +153,7 @@ nand_f_t = not (f and t)
 print("NOT (False AND True):", nand_f_t)
 
 nand_f_f = not(f and f)
-print("NOT (False AND False):", nand_f_and_f)
+print("NOT (False AND False):", nand_f_f)
 
 # Operacao NOR - Negação do OR
 
