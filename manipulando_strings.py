@@ -2,9 +2,7 @@
 # Trata-se basicamente de uma operacao de adição de duas (ou mais) strings
 nome = "Charles"
 sobrenome = "Xavier"
-nome_completo = nome + sobrenome
-
-# qual a string que será exibida quando o comando print abaixo executar?
+nome_completo = nome + " " + sobrenome
 print(nome_completo)
 
 
@@ -46,20 +44,21 @@ print("Os primeiros 8 caracteres:", primeiros_8)
 primeiros_8_tambem = texto[:8]
 print("Também sao os primeiros 8 caracteres:", primeiros_8_tambem)
 
-caracteres_depois_do_8 = texto[8:-1]
+caracteres_depois_do_8 = texto[8:]
 print("Todos os caracters depois do oitavo:", caracteres_depois_do_8)
 
 
 # também é possível fatiar saltando caracteres
 str_numeros = "0123456789"
-fatiando_e_salteando = str_numeros[0:6:2]
-print(fatiando_e_salteando)
+print(str_numeros)
+fateando_e_saltando = str_numeros[0:6:3]
+print(fateando_e_saltando)
 
 
-#### FORMATAÇAO DE STRINGS ###
-# Significa substituir valores armazenados variaveis dentro de uma string
+# ### FORMATAÇAO DE STRINGS ###
+# Significa usar valores armazenados em variaveis para de formar uma string,
 # para apresentar os dados para os usuários de uma forma legível.
-
+#
 # Primeiro Estilo: Substituição de valores com o operador %
 # ATENÇÃO: apesar de ainda ser suportado, este estilo é desencorajado.
 # Isto porque tem a pior legibilidade e é mais propenso a erros.
@@ -67,12 +66,11 @@ age = 60
 name = "Charles Xavier"
 job = "Líder dos X-Men"
 
+formato_1 = "%s tem %f anos de idade e ele é %s" % (name, age, job)
+print(formato_1)
 
-# formato_1 = "%s tem %s anos de idade e ele é %s" % (name, age, job)
-# print(formato_1)
-
-# formato_2 = "%(nome)s tem %(idade)s anos de idade e ele é %(ocupacao)s." % {"nome": name, "idade": age, "ocupacao": job}
-# print(formato_2)
+formato_2 = "%(nome)s tem %(idade)s anos de idade e ele é %(ocupacao)s" % {"idade": age, "ocupacao": job, "nome": name, }
+print(formato_2)
 
 
 # Segundo Estilo: Formatação usando a função format()
@@ -95,9 +93,9 @@ print(texto)
 
 # Pode fazer processamento diretamente dentro dos colchetes
 print(f"1 + 1 = {1+1}")
-
+#
 print(f"O IMC de alguém com 1.80m e 75Kg é: { 75 / 1.80**2 }")
-
+#
 nome = "Charles"
 sobrenome = "Xavier"
 print(f"O nome completo é: {nome} {sobrenome}")
