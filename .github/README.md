@@ -6,16 +6,16 @@ Mas se este não é o seu caso, siga o passo a passo aqui para saber como fazer 
 ## Verificando se o Git está instalado
 É bem provável que seu sitema já tenha Git instalado (principalmente se voceê usa MacOS ou Linux). 
 Para verificar se a ferramenta está instalada, abra um prompt de comandos (CLI) e digite `git --version`.
-Se voceê obtiver um output informando qual versaão do Git está instalada, significa que você já o possui e pode pular esta sessão. Caso contrário, continue com "Instalando o Git".
+Se você obtiver um output informando qual versão do Git está instalada, significa que você já o possui e pode pular esta sessão. Caso contrário, continue com "Instalando o Git".
 
-## Instalando o Git (caso já não esteja)
+## Instalando o Git (se já não estiver)
 Existem diversos excelentes tutoriais de como instalar o Git já disponíveis na Internet.
 E eu, como um desenvolvedor, prefiro reusar coisas que já existem do que reinventar a roda.
 Portanto, deixarei linkado aqui um guia para instalação do Git nos Sistemas Operacionais mais comums (Windows, MacOS & Linux). 
 [Basta seguir este passo a passo](https://www.hostinger.com.br/tutoriais/tutorial-do-git-basics-introducao#1o_Passo_-_Instalar_o_GIT_em_Sistemas_Diferentes) que não vai ter erro.
 
 
-## Clonando este repositoório para o seu computador
+## Clonando este repositório para o seu computador
 Se esta é a primeira vez que voceê está aqui para obter o código da playlist [Python Iniciante](https://www.youtube.com/watch?v=Y4uNyBKJpPY&list=PLfyimYNc1Xl2PQXQSKQSEtyXa3tYhTLhM), ou se você por algum motivo deletou o diretório que clonou anteriormente e gostaria de clonar de novo agora, faça o seguinte:
 1 - Abra seu programa de terminal e navegue para um diretório no seu sistema onde deseja armazenar a pasta `youtube-python-iniciante` que conterá todos os arquivos `.py` desenvolvidos ao longo da playlist.
 2 - Uma vez dentro deste diretório, execute o comando
