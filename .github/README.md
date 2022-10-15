@@ -35,14 +35,14 @@ Mas, como um guia MUITO simples (e certamente insuficiente) de como você pode t
 
 1 - Saiba que o Git trabalha com o conceito de **branches**. Uma branch, falando muito grosseiramente, é como se fosse uma versão "virtual" do seu diretório local, contento todos os arquivos (OBS: isto não é uma definição formal e adequada do que é de fato uma *branch*, mas apenas uma analogia).
 Por *default*, existe uma branch chamada **main** que você pode entender como sendo a "versão mestre" do coódigo. Desenvolvedores costumam tratar a **main** como sendo a versão "aprovada" do código de um sistema, isto é: a versão que vai para produção e é consumida pelos usuários (OBS: o nome desta branch "mestre" naão precisa ser *main*, mas tipicamente é. Também é bastante comum ser nomeada como **master**. Na prática, pode receber qualquer nome.)
-Para saber em qual branch voceê está a qualquer momento, basta usar o comando:
+Para saber em qual branch você está a qualquer momento, basta usar o comando:
 ```bash
 git branch
 
 
 *main
 ```
-Se você acabou de clonar este repositório, verá apenas as branches que existem aqui (que no momento é apenas a **master** mesmo).
+Se você acabou de clonar este repositório, verá apenas as branches que existem aqui (que no momento é apenas a **main** mesmo).
 Mas a medida que você for criando suas próprias branches, elas aparecerão no output do comando acima.
 
 Antes de fazer qualquer mudança em qualquer arquivo, crie uma **branch** sua e trabalhe fazendo suas alterações e experimentações apenas dentro dela.
