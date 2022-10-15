@@ -27,7 +27,16 @@ Quando o processo conluir, você verá uma pasta nomeada `youtube-python-inician
 
 
 ## Mantendo seus arquivos locais atualizados com este repositório
-É importante que você eventualmente domine os conceitos do Git para ser capaz de tanto trabalhar localmente e fazer as alterações que desejar, ao mesmo tempo que consegue manter todos os seus arquivos locais sincronizados com este repositoório "pai" aqui.
+O Git não irá magicamente manter o folder no seu computador sincronizado com este repositório remoto.  
+Para isto acontecer, é necessária uma ação de sua parte, usando o comando:
+```bash
+git pull
+```
+O comando acima irá detectar as diferenças existentes entre o repositório remoto e sua cópia local e sincronizar as duas coisas. Se este processo não funcionar, é porque voceê realizou mudanças localmente que conflitam com a versão do repositório.
+Resolver conflitos em Git está além do escopo deste pequeno guia aqui.
+
+## Realizando modificações localmente 
+É importante que você eventualmente domine os conceitos do Git para ser capaz de tanto trabalhar localmente e fazer as alterações que desejar, ao mesmo tempo que consegue manter todos os seus arquivos locais sincronizados com este repositório remoto "pai".
 Para isto, novamente, existem muitas fontes disponiíveis na Internet. E no próprio **caverna_dev** em breve teremos conteúdo a respeito. 
 Por ora, eu sugiro que dedique algum tempo estudando [este documento](https://www.hostinger.com.br/tutoriais/tutorial-do-git-basics-introducao#2o_Passo_-_Como_Usar_o_GIT).
 
