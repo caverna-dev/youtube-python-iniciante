@@ -74,9 +74,12 @@ else:
 # Exemplo 5:
 print("Começando o exemplo 5!")
 # Apenas uma condição irá executar
+
+# abaixo, altere os valores dessas variaveis entre True/False como quiser
+# para observar o comportamento da estrutura if/elif/else
 condicao_a = False
 condicao_b = False
-condicao_c = False
+condicao_c = True
 condicao_d = False
 
 if condicao_a:
