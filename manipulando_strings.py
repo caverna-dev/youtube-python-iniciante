@@ -7,7 +7,7 @@ print(nome_completo)
 
 
 #### ACCESSANDO CARACTERES ESPECÍFICOS EM UMA STRING ####
-# - strings sao 'iterables';
+# - strings fazem parte de um conjunto de estruturas que o Python chama de 'sequences' (como veremos mais para frente, sequences tbm sao 'iterables');
 # - iterable é um objeto especial do python: dados armazenados na memoria de uma forma
 #   sequencial (obedecendo uma ordem), e que podem ser acessados através de um index (índice).
 # - o primeiro char (carácter) de um iterable esta no index 0 (zero).
