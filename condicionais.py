@@ -27,7 +27,7 @@ nome_usuario = "James"
 sobrenome_usuario = "Howlett"
 idade_usuario = 150
 
-if sobrenome_usuario.startswith("H") and "a" in nome_usuario and idade_usuario >= 100:
+if idade_usuario < 18:
     print(f"qualquer outra coisa")
 
 if idade_usuario >= 18:
