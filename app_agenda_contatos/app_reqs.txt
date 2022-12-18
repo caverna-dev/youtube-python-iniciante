@@ -1,0 +1,27 @@
+### APP AGENDA DE CONTATOS ###
+
+OBJETIVO:
+- Permitir o usuario a construir uma agenda de contatos
+
+REQUISITOS:
+- ✅Ser capaz de "lembrar" dos contatos que ja foram salvos durante a execucao do programa
+- ❌Ser capaz de "lembrar" dos contatos que ja foram salvos entre reinicializacoes
+
+- ✅Um contato deve possuir os campos:
+	- ✅Nome
+	- ✅Sobrenome
+	- ✅Numero de Telefone
+	- ✅Data de Nascimento
+
+- ⚠️Fazer validações pertinentes a cada campo:
+	- ✅Nome: Nao pode ser vazio. Menor ou igual a 10 caracteres
+	- ✅Sobrenome: Nao pode ser vazio. Menor ou igual a 10 caracteres
+	- ❌Numero de Telefone: Composto apenas por caracteres numéricos. Menor igual 11 numeros.
+	- ❌Data de Nascimento: Ser uma data válida (presente ou passado)
+
+- ⚠️Permitir as seguintes operações sobre um contato:
+	- ⚠️Salvar um novo contato
+	- ❌Editar um contato existente
+	- ✅Listar todos os contatos
+	- ❌Pesquisar contatos (por nome)
+	- ❌Deletar um contato da agenda
