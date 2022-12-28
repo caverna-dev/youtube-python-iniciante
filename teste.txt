@@ -1,0 +1,24 @@
+Nome: Rick
+Sobrenome: Sanchez
+Profissao: Cientista
+Idade: 60
+
+Nome: Morty
+Sobrenome: Smith
+Profissao: Vindicator
+Idade: 14
+
+Nome: Jerry
+Sobrenome: Smith
+Profissao: Desempregado
+Idade: 40
+
+Nome: Summer
+Sobrenome: Smith
+Profissao: Assistente do CoisaRuim
+Idade: 18
+
+Nome: Mr. Meeseeks
+Sobrenome: NA
+Profissao: Faz-Tudo
+Idade: Variável
