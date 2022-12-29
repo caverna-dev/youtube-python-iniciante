@@ -1,4 +1,26 @@
 import sys
+
+def valida_atributo(nome_atributo, valor_atributo, max_len):
+    if not valor_atributo:
+        print(f"Nao é possível continuar sem um '{nome_atributo}'.")
+        sys.exit(1)
+    elif len(valor_atributo) > max_len:
+        print(f"O campo '{nome_atributo}' nao pode ter mais que {max_len} chars")
+        sys.exit(1)
+
+    if "telefone" in nome_atributo:
+        if not valor_atributo.isnumeric():
+            print("Um numero de telefone precisa ser composto apenas por caracteres numericos")
+            sys.exit(1)
+
+    elif "Data" in nome_atributo:
+        pass
+
+def obtem_e_valida_atributo(nome_atributo, max_len):
+    atributo = input(f"{nome_atributo}: ")
+    valida_atributo(nome_atributo=nome_atributo, valor_atributo=atributo, max_len=max_len)
+    return atributo
+
 print("Bem-vindo ao seu app de Contatos.")
 
 agenda = []
@@ -18,47 +40,10 @@ while operacao != "6":
     if operacao == "1":
         print("A seguir, insira os dados do usuário que você deseja armazenar.")
         novo_contato = {}
-
-        nome_contato = input("Nome: ")
-        # validando nome do contato
-        if not nome_contato:
-            print("Nao é possível continuar sem um nome do contato.")
-            sys.exit(1)
-        elif len(nome_contato) > 10:
-            print("O nome nao pode ter mais que 10 chars")
-            sys.exit(1)
-        novo_contato["nome_contato"] = nome_contato
-
-        sobrenome_contato = input("Sobrenome: ")
-        # validando sobrenome do contato
-        if not sobrenome_contato:
-            print("Nao é possível continuar sem um sobrenome do contato.")
-            sys.exit(1)
-        elif len(sobrenome_contato) > 10:
-            print("O sobrenome nao pode ter mais que 10 chars")
-            sys.exit(1)
-        novo_contato["sobrenome_contato"] = sobrenome_contato
-
-        data_nascimento = input("Data de nascimento (dd/mm/aaaa): ")
-        # validando data de nascimento
-        if not data_nascimento:
-            print("Nao é possível continuar sem uma data de nascimento.")
-            sys.exit(1)
-        elif len(data_nascimento) > 10:
-            print("Data de nascimento nao pode ter mais que 10 chars")
-            sys.exit(1)
-        novo_contato["data_nascimento"] = data_nascimento
-
-        telefone_contato = input("Numero do telefone: ")
-        # validando num. telefone
-        if not telefone_contato:
-            print("Nao é possível continuar sem um numero de telefone.")
-            sys.exit(1)
-        elif len(telefone_contato) > 11:
-            print("Numero de telefone nao pode ter mais que 11 chars")
-            sys.exit(1)
-        novo_contato["telefone_contato"] = telefone_contato
-
+        novo_contato["nome_contato"] = obtem_e_valida_atributo(nome_atributo="Nome", max_len=10)
+        novo_contato["sobrenome_contato"] = obtem_e_valida_atributo(nome_atributo="Sobrenome", max_len=10)
+        novo_contato["data_nascimento"] = obtem_e_valida_atributo(nome_atributo="Data de Nascimento (dd/mm/aaaa)", max_len=10)
+        novo_contato["telefone_contato"] = obtem_e_valida_atributo(nome_atributo="Numero do telefone", max_len=11)
 
         print("Dados do contato validados e serão salvos...")
         agenda.append(novo_contato)
