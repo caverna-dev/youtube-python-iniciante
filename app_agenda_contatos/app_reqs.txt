@@ -13,11 +13,11 @@ REQUISITOS:
 	- ✅Numero de Telefone
 	- ✅Data de Nascimento
 
-- ⚠️Fazer validações pertinentes a cada campo:
+- ✅Fazer validações pertinentes a cada campo:
 	- ✅Nome: Nao pode ser vazio. Menor ou igual a 10 caracteres
 	- ✅Sobrenome: Nao pode ser vazio. Menor ou igual a 10 caracteres
 	- ✅Numero de Telefone: Composto apenas por caracteres numéricos. Menor igual 11 numeros.
-	- ❌Data de Nascimento: Ser uma data válida (presente ou passado)
+	- ✅Data de Nascimento: Ser uma data válida (presente ou passado)
 
 - ⚠️Permitir as seguintes operações sobre um contato:
 	- ⚠️Salvar um novo contato
