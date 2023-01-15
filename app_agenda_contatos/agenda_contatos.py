@@ -1,85 +1,74 @@
-import sys
-from datetime import datetime
-
-def validacao_generica(nome_atributo, valor_atributo, max_len):
-    if not valor_atributo:
-        print(f"Nao é possível continuar sem um '{nome_atributo}'.")
-        sys.exit(1)
-    elif len(valor_atributo) > max_len:
-        print(f"O campo '{nome_atributo}' nao pode ter mais que {max_len} chars")
-        sys.exit(1)
-
-def valida_telefone(telefone):
-    if not telefone.isnumeric():
-        print("Um numero de telefone precisa ser composto apenas por caracteres numericos")
-        sys.exit(1)
-
-def valida_data(data):
-    try:
-        data_validada = datetime.strptime(data, "%d/%m/%Y")
-        hoje = datetime.today()
-
-        if data_validada > hoje:
-            raise ValueError
-
-    except ValueError:
-        print("A data informada nao e valida!")
-        sys.exit(1)
-
-def valida_atributo(nome_atributo, valor_atributo, max_len):
-
-    validacao_generica(nome_atributo, valor_atributo, max_len)
-
-    if "telefone" in nome_atributo.lower():
-        valida_telefone(telefone=valor_atributo)
-
-    elif "data" in nome_atributo.lower():
-        valida_data(data=valor_atributo)
-
-def obtem_e_valida_atributo(nome_atributo, max_len):
-    atributo = input(f"{nome_atributo}: ")
-    valida_atributo(nome_atributo=nome_atributo, valor_atributo=atributo, max_len=max_len)
-    return atributo
-
-def salva_contatos(agenda, nome_arquivo="agenda.txt"):
-    with open(file=nome_arquivo, mode="w") as f_agenda:
-        for dicionario_contato in agenda:
-            linha = ""
-            for valor in dicionario_contato.values():
-                linha = linha + f"{valor},"
-            linha = linha.rstrip(",")
-            f_agenda.write(f"{linha}\n")
+from utils import carrega_contatos
+from utils import salva_contatos
+from utils import exibe_agenda
+from utils import pesquisa_contato
+from utils import atualiza_ou_cria_contato
+from constants import CONTATO
 
 print("Bem-vindo ao seu app de Contatos.")
 
-agenda = []
+agenda = carrega_contatos()
 operacao = ""
 while operacao != "6":
     print()
     print("### MENU ###")
     print("Operações possíveis:")
     print("1 - Salvar")
-    print("2- Editar")
+    print("2 - Editar")
     print("3 - Listar")
     print("4 - Pesquisar")
-    print("4 - Deletar")
+    print("5 - Deletar")
     print("6 - Sair")
     operacao = input("Escolha uma operação acima pelo seu numero: ")
 
     if operacao == "1":
         print("A seguir, insira os dados do usuário que você deseja armazenar.")
-        novo_contato = {}
-        novo_contato["nome_contato"] = obtem_e_valida_atributo(nome_atributo="Nome", max_len=10)
-        novo_contato["sobrenome_contato"] = obtem_e_valida_atributo(nome_atributo="Sobrenome", max_len=10)
-        novo_contato["data_nascimento"] = obtem_e_valida_atributo(nome_atributo="Data de Nascimento (dd/mm/aaaa)", max_len=10)
-        novo_contato["telefone_contato"] = obtem_e_valida_atributo(nome_atributo="Numero do telefone", max_len=11)
+
+        novo_contato = atualiza_ou_cria_contato(dicionario_contato={}, chaves=CONTATO.keys())
 
         print("Dados do contato validados e serão salvos...")
         agenda.append(novo_contato)
         salva_contatos(agenda=agenda)
 
+    elif operacao == "2":
+        agenda_filtrada = pesquisa_contato(agenda=agenda, inclui_ref=True)
+        if agenda_filtrada:
+            ref_contato = input("Informe a Referencia do contato a ser editado: ")
+            contato_para_editar = agenda_filtrada[int(ref_contato)]
+
+            lista_de_chaves = list(CONTATO.keys())
+
+            for chave, valor in CONTATO.items():
+                print(f"{lista_de_chaves.index(chave)} - {valor[0]}")
+
+            index_chaves = input("Escolha os campos acima para editar pelos seus numeros, separados por virgula: ")
+            index_chaves = index_chaves.split(",")
+
+            chaves = []
+            for index in index_chaves:
+                chave = lista_de_chaves[int(index)]
+                chaves.append(chave)
+
+            # usando list comprehensions
+            # chaves = [lista_de_chaves[int(index)] for index in index_chaves]
+
+            atualiza_ou_cria_contato(dicionario_contato=contato_para_editar, chaves=chaves)
+            salva_contatos(agenda=agenda)
+
+
+
     elif operacao == "3":
-        for contato in agenda:
-            for chave, valor in contato.items():
-                print(f"{chave.replace('contato', '').replace('_', ' ').title().strip()}: {valor}")
-            print()
+        exibe_agenda(agenda=agenda)
+
+    elif operacao == "4":
+        pesquisa_contato(agenda=agenda)
+
+    elif operacao == "5":
+        agenda_filtrada = pesquisa_contato(agenda=agenda, inclui_ref=True)
+        if agenda_filtrada:
+            ref_contato = input("Informe a Referencia do contato a ser deletado: ")
+            contato_para_deletar = agenda_filtrada[int(ref_contato)]
+            agenda.remove(contato_para_deletar)
+            salva_contatos(agenda=agenda)
+            print(f"O contato {contato_para_deletar} foi removido com sucesso")
+
