@@ -35,11 +35,32 @@ func_com_parametros(0, 10)
 # usando KEYWORD arguments
 func_com_parametros(maximo=10, minimo=0)
 
+
+# usando POSITIONAL arguments a partir de um itarable
+# tipicamente, listas ou tuplas sao usadas, mas qlqr iterable funciona
+tuple_args = (0, 10)
+
+dict_args = {
+    0: "zero",
+    10: "dez"
+}
+
+func_com_parametros(*dict_args.keys())
+
+print()
+
+# usando KEYWORD arguments a partir de um DICIONARIO
+dict_args = {
+    "minimo": 0,
+    "maximo": 10
+}
+func_com_parametros(**dict_args)
+
 def func_com_parametros_default(minimo=0, maximo=10):
     for i in range(minimo, maximo):
         print(i)
 
-# usando os defineaults
+# usando os defaults
 func_com_parametros_default()
 
 # alterando os defaults
